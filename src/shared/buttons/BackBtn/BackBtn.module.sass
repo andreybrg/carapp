@@ -1,0 +1,19 @@
+@use 'assets/styles/colors' as color
+@use 'assets/styles/mixins' as m
+    
+.button
+    display: flex
+    align-items: center
+    column-gap: 5px
+    margin: 0 0 20px 0
+    cursor: pointer
+    border: none
+    background: unset
+    padding: 0
+
+.image
+    width: 19px
+    height: 19px
+
+.span
+    @include m.fontInter(16px, color.$main-opposite-color, 500, 140%)

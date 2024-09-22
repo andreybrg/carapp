@@ -1,0 +1,22 @@
+@use 'assets/styles/mixins' as m
+@use 'assets/styles/colors' as color
+
+.list
+    display: flex
+    flex-wrap: wrap
+    row-gap: 25px
+    @include m.s900
+        row-gap: 20px
+.item
+    display: flex
+    flex-direction: column
+    width: 20%
+    padding: 0 10px 0 0
+    box-sizing: border-box
+    @include m.s900
+        width: 100%
+    span
+        @include m.fontInter(14px, color.$main-opposite-color, 400, 140%)
+        &:first-child
+            font-weight: 400
+            opacity: .6

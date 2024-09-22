@@ -1,0 +1,1 @@
+export { Layout as FiltersControl } from './Layout/Layout'
