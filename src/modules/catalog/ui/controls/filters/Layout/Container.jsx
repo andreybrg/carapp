@@ -1,13 +1,14 @@
 import React, { useContext } from "react"
 import { Layout } from "./Layout"
 import { ModalsContext } from "modules/modals"
+import { FiltrationForm } from "modules/fitration"
 
 export const Container = ({ isFiltersOn }) => {
 
     const { mainModalController } = useContext(ModalsContext)
 
     const openFilters = () => {
-        mainModalController.mountMainModal(<>Привет черт</>, 'Фильтры')
+        mainModalController.mountMainModal(<FiltrationForm/>, 'Фильтры')
     }
 
     return(

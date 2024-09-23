@@ -1,0 +1,49 @@
+@use 'assets/styles/colors' as color
+@use 'assets/styles/mixins' as m
+    
+.label
+    display: flex
+    flex-direction: column
+    position: relative
+    row-gap: 2px
+    input[type="text"]
+        background-color: initial
+        border: 1px solid color.$main-opposite-color
+        border-radius: 2px
+        box-sizing: border-box
+        @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)
+        height: 50px
+        outline: none
+        padding: 0 15px
+    input[type="text"]::placeholder
+        @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)
+        opacity: .4
+        color: color.$main-opposite-color
+    &:has(>input:focus) .title,
+    &:has(>input:not(:placeholder-shown)) .title
+        background-color: color.$main-color
+        bottom: auto
+        box-sizing: border-box
+        font-size: 10px
+        left: 12px
+        line-height: 100%
+        opacity: 1
+        padding: 0 3px
+        top: -5px
+.title
+    bottom: 0
+    color: color.$main-opposite-color
+    @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)
+    height: fit-content
+    left: 15px
+    margin: auto
+    opacity: .4
+    pointer-events: none
+    position: absolute
+    right: auto
+    top: 0
+    
+.fieldError
+    @include m.fontInter(12px, color.$main-opposite-color, 400, 140%)
+    position: absolute
+    bottom: -19px
