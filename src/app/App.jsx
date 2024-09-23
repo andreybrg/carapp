@@ -1,15 +1,18 @@
+import React from "react"
 import { AppProvider } from "app/providers"
+import { ModalsProvider } from "modules/modals"
 import { AppRouter } from "app/routers"
 import { AppInitialization } from "app/initialization"
-import React from "react"
 
 const App = () => {
-
+  
   return (
     <AppProvider>
-      <AppInitialization>
-        <AppRouter/>
-      </AppInitialization>
+      <ModalsProvider>
+        <AppInitialization>
+          <AppRouter/>
+        </AppInitialization>
+      </ModalsProvider>
     </AppProvider>
   )
 }

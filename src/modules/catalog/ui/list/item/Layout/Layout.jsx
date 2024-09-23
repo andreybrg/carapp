@@ -9,8 +9,8 @@ export const Layout = ({ data }) => {
     return(
         <Link to={'/card/2'} className={style.item}>
             <Picture
-                images={[]}
-                mainImageId={null}
+                images={data.images}
+                mainImageId={data.content.mainImageId}
                 />
             <Price
                 price={data.content.price}

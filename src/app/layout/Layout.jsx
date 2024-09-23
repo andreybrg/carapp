@@ -2,8 +2,11 @@ import React from "react"
 import style from './Layout.module.sass'
 import { Outlet } from "react-router-dom"
 import { Header } from "shared/header"
+import { ModalsModule } from "modules/modals"
 
-export const Layout = () => {
+export const Layout = ({
+}) => {
+
     return(
         <div className={style.app}>
             <header className={style.header}>
@@ -20,6 +23,7 @@ export const Layout = () => {
                     </div>
                 </div>
             </main>
+            <ModalsModule/>
         </div>
     )
 }

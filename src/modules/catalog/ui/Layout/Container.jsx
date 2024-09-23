@@ -12,7 +12,7 @@ export const Container = ({}) => {
         error: catalogDataError, 
         isLoading: catalogDataIsLoading, 
         refetch: refetchCatalogData 
-    } = useGetCatalogDataQuery({offset: 0, count: 100, filters: {}})
+    } = useGetCatalogDataQuery({offset: 0, count: 100, filters: filters})
 
     useEffect(() => {
         refetchCatalogData({offset: 0, count: 100, filters: filters})

@@ -3,10 +3,10 @@ import tuneSvg from 'assets/images/tune.svg'
 import style from './Layout.module.sass'
 import cn from "classnames"
 
-export const Layout = ({ isFiltersOn }) => {
+export const Layout = ({ isFiltersOn, openFilters }) => {
 
     return(
-        <button onClick={() => {/*onFiltersOpen */}} className={style.item}>
+        <button onClick={() => openFilters()} className={style.item}>
             <img src={tuneSvg}/>
             <span>Фильтры</span>
             {

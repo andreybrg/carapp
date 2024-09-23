@@ -1,1 +1,1 @@
-export { Layout as FiltersControl } from './Layout/Layout'
+export { Container as FiltersControl } from './Layout/Container'

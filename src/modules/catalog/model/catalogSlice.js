@@ -1,12 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { catalogAPI } from './catalogAPI'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     data: {
-        list: [],
-        totalCount: 0
     },
-    isInit: false,
 }
 
 const catalogSlice = createSlice({
