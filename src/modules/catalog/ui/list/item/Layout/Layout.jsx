@@ -7,7 +7,7 @@ import { Title } from "../Title/Title"
 
 export const Layout = ({ data }) => {
     return(
-        <Link to={'/card/2'} className={style.item}>
+        <Link to={`/card/${data.content.advertId}`} className={style.item}>
             <Picture
                 images={data.images}
                 mainImageId={data.content.mainImageId}
