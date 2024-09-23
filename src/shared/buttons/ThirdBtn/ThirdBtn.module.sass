@@ -1,0 +1,20 @@
+@use 'assets/styles/colors' as color
+@use 'assets/styles/mixins' as m
+    
+.btn
+    border: none
+    outline: none
+    padding: 0
+    width: fit-content
+    height: fit-content
+    box-sizing: border-box
+    border-radius: 3px
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    background: unset
+    &[disabled]
+        opacity: .3
+    span
+        @include m.fontInter(16px, color.$main-opposite-color, 500, 140% )

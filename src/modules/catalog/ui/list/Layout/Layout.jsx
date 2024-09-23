@@ -1,6 +1,5 @@
 import React from "react"
 import { CatalogListItem } from "../item"
-
 import style from './Layout.module.sass'
 import { EmptyList } from "shared/emtyList"
 

@@ -12,6 +12,11 @@ const Container = ({ filterParams }) => {
 
     const [ setFiltration ] = useFIltration()
 
+    const resetFilters = (e) => {
+        e.preventDefault()
+        setFiltration({})
+        mainModalController.unmountMainModal()
+    }
     const formik = useFormik({
         initialValues: {
             priceFrom: filterParams.priceFrom ? filterParams.priceFrom : '',
@@ -35,6 +40,7 @@ const Container = ({ filterParams }) => {
         <Layout
             onSubmit={formik.handleSubmit}
             formik={formik}
+            resetFilters={resetFilters}
             />
     )
 }

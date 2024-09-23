@@ -3,8 +3,9 @@ import { MainForm } from 'shared/forms'
 import { InputNumber } from "shared/fields"
 import { MainBtn } from "shared/buttons"
 import style from './Layout.module.sass'
+import { ThirdBtn } from "shared/buttons/ThirdBtn/ThirdBtn"
 
-export const Layout = ({ onSubmit, formik }) => {
+export const Layout = ({ onSubmit, formik, resetFilters }) => {
     return(
         <MainForm onSubmit={onSubmit}>
             <InputNumber
@@ -20,8 +21,11 @@ export const Layout = ({ onSubmit, formik }) => {
                 formikFieldProps={{...formik.getFieldProps('priceTo')}}
                 />
             <MainBtn type={'submit'}>
-                Отправить
+                Применить
             </MainBtn>
+            <ThirdBtn type={'button'} onClick={(event) => resetFilters(event)}>
+                Сбросить фильтры
+            </ThirdBtn>
         </MainForm>
     )
 }
