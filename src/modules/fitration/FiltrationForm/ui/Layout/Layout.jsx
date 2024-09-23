@@ -1,21 +1,23 @@
 import React from "react"
 import { MainForm } from 'shared/forms'
-import style from './Layout.module.sass'
-import { InputText } from "shared/fields"
+import { InputNumber } from "shared/fields"
 import { MainBtn } from "shared/buttons"
+import style from './Layout.module.sass'
 
-export const Layout = ({ onSubmit }) => {
+export const Layout = ({ onSubmit, formik }) => {
     return(
         <MainForm onSubmit={onSubmit}>
-            <InputText
-                label={'Тестовое поле'}
-                id={1}
-                name={1}
+            <InputNumber
+                label={'Цена от'}
+                id={'priceFrom'}
+                name={'priceFrom'}
+                formikFieldProps={{...formik.getFieldProps('priceFrom')}}
                 />
-            <InputText
-                label={'Тестовое поле 2'}
-                id={2}
-                name={2}
+            <InputNumber
+                label={'Цена до'}
+                id={'priceTo'}
+                name={'priceTo'}
+                formikFieldProps={{...formik.getFieldProps('priceTo')}}
                 />
             <MainBtn type={'submit'}>
                 Отправить

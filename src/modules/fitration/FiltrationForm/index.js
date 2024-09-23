@@ -1,1 +1,1 @@
-export { Container as FiltrationForm } from './ui/Layout/Container'
+export { ContainerWithFilterData as FiltrationForm } from './ui/Layout/Container'

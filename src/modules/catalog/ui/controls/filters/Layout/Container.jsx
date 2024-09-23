@@ -3,7 +3,7 @@ import { Layout } from "./Layout"
 import { ModalsContext } from "modules/modals"
 import { FiltrationForm } from "modules/fitration"
 
-export const Container = ({ isFiltersOn }) => {
+export const Container = ({ isFiltersActive }) => {
 
     const { mainModalController } = useContext(ModalsContext)
 
@@ -14,7 +14,7 @@ export const Container = ({ isFiltersOn }) => {
     return(
         <Layout
             openFilters={openFilters}
-            isFiltersOn={isFiltersOn}
+            isFiltersActive={isFiltersActive}
             />
     )
 }

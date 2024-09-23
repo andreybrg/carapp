@@ -1,37 +1,13 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Layout } from "./Layout"
-import { useFIltration } from "modules/fitration"
-import { useGetCatalogDataQuery } from "modules/catalog"
+import { withFilterData } from "modules/fitration"
 
 export const Container = ({}) => {
 
-    const [ filters, isFiltersOn, setFiltrationParams ] = useFIltration()
+    const LayoutWithFilterData = withFilterData(Layout)
 
-    const { 
-        data: catalogData, 
-        error: catalogDataError, 
-        isLoading: catalogDataIsLoading, 
-        refetch: refetchCatalogData 
-    } = useGetCatalogDataQuery({offset: 0, count: 100, filters: filters})
+    return(
+        <LayoutWithFilterData />
+    )
 
-    useEffect(() => {
-        refetchCatalogData({offset: 0, count: 100, filters: filters})
-    }, [filters])
-
-    console.log(catalogData)
-
-    if(!catalogDataIsLoading) {
-        return(
-            <Layout
-                catalogList={catalogData.response.ads}
-                isFiltersOn={isFiltersOn}
-                />
-        )
-    } else {
-        return(
-            <>
-                LOADING
-            </>
-        )
-    }
 }

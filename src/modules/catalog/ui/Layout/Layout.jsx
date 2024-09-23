@@ -2,15 +2,18 @@ import React from "react"
 import { CatalogList } from "../list"
 import { CatalogControls } from "../controls"
 
-export const Layout = ({ catalogList=[], isFiltersOn }) => {
+export const Layout = ({ 
+    filterParams,
+    isFiltersActive,
+}) => {
 
     return(
         <>
             <CatalogControls
-                isFiltersOn={isFiltersOn}
+                isFiltersActive={isFiltersActive}
                 />
             <CatalogList
-                data={catalogList}
+                filterParams={filterParams}
                 />
         </>
     )

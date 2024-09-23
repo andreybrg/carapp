@@ -1,10 +1,10 @@
 import React from "react"
 import { Layout } from "./Layout"
 
-export const Container = ({ isFiltersOn }) => {
+export const Container = ({ isFiltersActive }) => {
     return(
         <Layout
-            isFiltersOn={isFiltersOn}
+            isFiltersActive={isFiltersActive}
             />
     )
 }
