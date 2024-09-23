@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Layout } from "./Layout"
-import { useSelector } from "react-redux"
 import { useGetCatalogDataQuery } from "modules/catalog/model/catalogAPI"
+import { CatalogPlaceholder } from "../placeholder"
 
 export const Container = ({ filterParams }) => {
 
@@ -27,9 +27,7 @@ export const Container = ({ filterParams }) => {
         )
     } else {
         return(
-            <>
-                LOADING
-            </>
+            <CatalogPlaceholder/>
         )
     }
 }

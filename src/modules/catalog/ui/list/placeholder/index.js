@@ -1,0 +1,1 @@
+export { Layout as CatalogPlaceholder } from './Layout/Layout'

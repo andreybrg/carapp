@@ -1,0 +1,56 @@
+@use 'assets/styles/mixins' as m
+@use 'assets/styles/colors' as color
+@use 'assets/styles/functions' as f
+
+.list
+    display: flex
+    flex-wrap: wrap
+    position: relative
+    width: calc(100% + 10px)
+    row-gap: 30px
+
+.item
+    width: 25%
+    padding: 0 10px 0 0
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    &:nth-child(2)
+        opacity: .75
+    &:nth-child(3)
+        opacity: .5
+    &:nth-child(4)
+        opacity: .3
+    @include m.s900
+        width: 50%
+
+.rect
+    width: 100%
+    position: relative
+    padding-top: 100%
+    background-color: color.$main-second-color
+    border-radius: 3px
+    // border: 1px solid f.HEXtoRGBA(color.$main-opposite-color, .1)
+    box-sizing: border-box
+    margin: 0 0 10px 0
+    display: flex
+    overflow: hidden
+
+.price
+    width: 50%
+    height: 20px
+    background-color: color.$main-second-color
+    margin: 0 0 5px 0
+    border-radius: 3px
+    opacity: .6
+    position: relative
+    overflow: hidden
+
+.title
+    width: 90%
+    height: 34px
+    background-color: color.$main-second-color
+    border-radius: 3px
+    opacity: .8
+    position: relative
+    overflow: hidden
