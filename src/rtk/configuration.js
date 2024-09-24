@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { appSlice } from "app"
 import { catalogAPI, catalogSlice } from "modules/catalog"
-import { cardAPI, cardSlice } from "modules/card"
+import { cardAPI, cardSlice, carRequestAPI, carRequestSlice } from "modules/card"
 import { mainModalSlice } from "modules/modals/mainModal"
+
 
 const store = configureStore({
     reducer: {
@@ -10,13 +11,16 @@ const store = configureStore({
         catalog: catalogSlice,
         card: cardSlice,
         mainModal: mainModalSlice,
+        carRequest: carRequestSlice,
         [catalogAPI.reducerPath]: catalogAPI.reducer,
         [cardAPI.reducerPath]: cardAPI.reducer,
+        [carRequestAPI.reducerPath]: carRequestAPI.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware()
             .concat(catalogAPI.middleware)
             .concat(cardAPI.middleware)
+            .concat(carRequestAPI.middleware)
 })
 
 export default store

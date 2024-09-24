@@ -1,0 +1,24 @@
+@use 'assets/styles/functions' as f
+@use 'assets/styles/colors' as color
+@use 'assets/styles/mixins' as m
+    
+.label
+    display: flex
+    align-items: center
+    padding: 0 15px
+    position: relative
+    height: 50px
+    width: 100%
+    border: 1px solid color.$main-opposite-color
+    box-sizing: border-box
+    border-radius: 3px
+    cursor: pointer
+    input
+        display: none
+    &:has(>input:checked)
+        background-color: color.$theme-color
+        border-color: color.$theme-color
+        .title
+            color: color.$main-color
+.title
+    @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)

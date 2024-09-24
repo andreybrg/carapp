@@ -1,13 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Layout } from "./Layout"
 import { useParams } from "react-router-dom"
 import { useGetCardDataQuery } from "modules/card/model/cardAPI"
 import { CardPlaceholder } from "../placeholder"
 import { MainError } from "shared/errorMessages"
+import { ModalsContext } from "modules/modals"
+import { CarRequestForm } from "../forms"
 
 export const Container = ({}) => {
 
     const { cardId } = useParams()
+    const { mainModalController } = useContext(ModalsContext)
+
+    const openCarRequestForm = () => {
+        mainModalController.mountMainModal(<CarRequestForm advertId={cardId}/>, 'Оставьте ваши контакты и мы свяжемся с вами')
+    }
 
     const { 
         data: cardData, 
@@ -24,6 +31,7 @@ export const Container = ({}) => {
             <Layout 
                 cardId={cardId}
                 cardData={cardData.response[0]}
+                openCarRequestForm={openCarRequestForm}
                 />
             :
             <MainError message={'Ошибка загрузки. Попробуйте позже.'}/>

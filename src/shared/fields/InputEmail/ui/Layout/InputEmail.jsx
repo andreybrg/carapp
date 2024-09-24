@@ -19,7 +19,7 @@ export const InputEmail = ({
                 placeholder={''} 
                 type={'email'}
                 />
-            {formikTouched && formikErrors ? <div className="main-form__field-error">{formikErrors}</div> : null}
+            {formikTouched && formikErrors ? <div className={style.fieldError}>{formikErrors}</div> : null}
         </label>
     )
 }

@@ -9,7 +9,8 @@ import { BackBtn, MainBtn, SecondBtn } from "shared/buttons"
 
 export const Layout = ({ 
     cardId,
-    cardData
+    cardData,
+    openCarRequestForm
 }) => {
 
     const title = `${cardData.content.manufacturer} ${cardData.content.model}`
@@ -22,7 +23,7 @@ export const Layout = ({
                 <Price price={priceFormatter(cardData.content.price)}/>
                 <Title title={title}/>
                 <div className={style.btnSection}>
-                    <MainBtn>
+                    <MainBtn onClick={() => openCarRequestForm()}>
                         Хочу эту машину
                     </MainBtn>
                     <div className={style.btnsInRow}>
