@@ -1,0 +1,81 @@
+@use 'assets/styles/functions' as f
+@use 'assets/styles/colors' as color
+@use 'assets/styles/mixins' as m
+
+.cardImages
+    width: 100%
+    display: flex
+    flex-direction: column
+    margin: 0 0 15px 0
+    &__img
+        width: 100%
+        position: relative
+        padding-top: 100%
+        border-radius: 3px
+        border: 1px solid f.HEXtoRGBA(color.$main-opposite-color, .1)
+        box-sizing: border-box
+        background-color: color.$main-second-color
+        overflow: hidden
+        display: flex
+        justify-content: center
+        align-items: center
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 40%
+            height: 100%
+            background: linear-gradient(to right, transparent 0%, f.HEXtoRGBA(color.$main-opposite-color, .2) 50%, transparent 100%)
+            animation: load .4s cubic-bezier(.4, .0, .2, .1) infinite
+        img
+            border-radius: 2px
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+            object-fit: contain
+            opacity: 0
+            z-index: 2
+            transition: .2s
+        &Loaded
+            &::before
+                background: color.$main-second-color
+                animation: none
+            img
+                transition: .2s
+                opacity: 1
+    &__controls
+        display: flex
+        justify-content: space-between
+        margin: 10px 0 0 0
+        button
+            padding: 0
+            border: none
+            background: unset
+            font-size: 0
+            cursor: pointer
+
+.bgImage
+    width: 120% !important
+    height: 120% !important
+    left: -10% !important
+    top: -10% !important
+    filter: blur(15px) !important
+    object-fit: cover !important
+    z-index: 1 !important
+
+.emptyPhoto
+    margin: auto
+    width: 40px !important
+    height: 40px !important
+    opacity: .4
+
+@keyframes load
+    from
+        left: -250px
+    to
+        left: 100%

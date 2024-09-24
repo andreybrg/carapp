@@ -1,0 +1,26 @@
+@use 'assets/styles/mixins' as m
+@use 'assets/styles/colors' as color
+
+.data
+    display: flex
+    flex-wrap: wrap
+    row-gap: 15px
+.item
+    width: 100%
+    box-sizing: border-box
+    span
+        @include m.fontInter(14px, color.$main-opposite-color, 400, 140%)
+
+.title
+    @include m.fontInter(22px, color.$main-opposite-color, 500, 140%)
+    margin: 0 0 15px 0
+
+.list
+    padding: 0 0 0 18px
+    margin: 0
+    li
+        list-style-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzhCOEI4QiIvPgo8L3N2Zz4K")
+        span
+            @include m.fontInter(14px, color.$main-opposite-color, 400, 210%)
+            padding: 0 0 0 5px
+            box-sizing: border-box

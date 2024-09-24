@@ -1,0 +1,1 @@
+export { MainError } from './mainError'

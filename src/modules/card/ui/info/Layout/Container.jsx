@@ -1,8 +1,11 @@
 import React from "react"
 import { Layout } from "./Layout"
 
-export const Container = ({ }) => {
+export const Container = ({ 
+    dataContent,
+    dataComplectation,
+}) => {
     return(
-        <Layout/>
+        <Layout dataContent={dataContent} dataComplectation={dataComplectation}/>
     )
 }

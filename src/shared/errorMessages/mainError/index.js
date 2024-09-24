@@ -1,0 +1,1 @@
+export { Layout as MainError } from './ui/Layout'

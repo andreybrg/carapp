@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { Layout } from "./Layout"
 import { useGetCatalogDataQuery } from "modules/catalog/model/catalogAPI"
 import { CatalogPlaceholder } from "../placeholder"
+import { MainError } from "shared/errorMessages"
 
 export const Container = ({ filterParams }) => {
 
@@ -21,9 +22,13 @@ export const Container = ({ filterParams }) => {
 
     if(!catalogDataIsFetching) {
         return(
+            !catalogDataError
+            ?
             <Layout
                 data={catalogData.response.ads}
                 />
+            :
+            <MainError message={'Ошибка загрузки. Попробуйте позже.'}/>
         )
     } else {
         return(

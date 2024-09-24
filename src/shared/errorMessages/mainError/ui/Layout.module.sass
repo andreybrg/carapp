@@ -1,0 +1,15 @@
+@use 'assets/styles/mixins' as m
+@use 'assets/styles/colors' as color
+    
+.error
+    display: flex
+    flex-direction: column
+    margin: 50px auto 0 auto
+    align-items: center
+    row-gap: 10px
+    span
+        @include m.fontInter(16px, color.$main-opposite-color, 500, 140%)
+        &:first-child
+            font-size: 70px
+            width: 350px
+            text-align: center
