@@ -1,0 +1,1 @@
+export { Layout as CatalogListItem } from './ui/Layout/Layout'

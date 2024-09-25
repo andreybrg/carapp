@@ -2,7 +2,7 @@ import React from "react"
 import { Images } from "../Images/Images"
 import { Price } from "../Price/Price"
 import { Title } from "../Title/Title"
-import { CardInfo } from "../info"
+import { CardInfo } from "../../info"
 import { priceFormatter } from "shared/utils"
 import style from './Layout.module.sass'
 import { BackBtn, MainBtn, SecondBtn } from "shared/buttons"

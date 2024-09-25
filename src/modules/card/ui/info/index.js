@@ -1,1 +1,0 @@
-export { Container as CardInfo } from './Layout/Container'

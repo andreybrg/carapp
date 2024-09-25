@@ -1,42 +1,33 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import cn from 'classnames'
 import style from './Images.module.sass'
-import { usePicturesSlider } from "shared/hooks"
+import { useOnImageLoaded, usePicturesSlider } from "shared/hooks"
 import arrowLeftSvg from 'assets/images/arrow_left.svg'
 import arrowRightSvg from 'assets/images/arrow_right.svg'
 import noPhotoSvg from 'assets/images/no_photo.svg'
 
 export const Images = ({ images }) => {
 
-    const [ isLoaded, setIsLoaded ] = useState(false)
-
     const [ currentSlide, sliderToLeft, sliderToRight ] = usePicturesSlider(images.length)
-
-    useEffect(() => {
-        setIsLoaded(false)
-    }, [currentSlide])
-
-    const onImgLoaded = () => {
-        setIsLoaded(true)
-    }
+    const [ isImageLoaded, onImageLoaded ] = useOnImageLoaded([currentSlide])
 
     return(
         <div className={style.cardImages}>
             <div className={
                 cn([
                     style.cardImages__img, 
-                    {[style.cardImages__imgLoaded]: isLoaded}
+                    {[style.cardImages__imgLoaded]: isImageLoaded}
                 ])
             }>
             {
                 images.length
                 ?
                 <>
-                    <img onLoad={onImgLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
-                    <img className={style.bgImage} onLoad={onImgLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
+                    <img onLoad={onImageLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
+                    <img onLoad={onImageLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
                 </>
                 : 
-                <img onLoad={onImgLoaded} className={style.emptyPhoto} src={noPhotoSvg} alt="" />
+                <img className={style.emptyPhoto} src={noPhotoSvg} alt="" />
             }
             </div>
             {

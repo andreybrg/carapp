@@ -1,3 +1,3 @@
-export { useFIltration } from './hook/useFiltration'
+export { useFIltration } from './hook'
 export { FiltrationForm } from './FiltrationForm'
-export { withFilterData } from './hoc/withFilterData'
+export { withFilterData } from './hoc'

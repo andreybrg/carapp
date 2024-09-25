@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
 import { Layout } from "./Layout"
 import { useParams } from "react-router-dom"
-import { useGetCardDataQuery } from "modules/card/model/cardAPI"
-import { CardPlaceholder } from "../placeholder"
+import { useGetCardDataQuery } from "./../../model/cardAPI"
+import { Placeholder } from "./../Placeholder/Placeholder"
 import { MainError } from "shared/errorMessages"
 import { ModalsContext } from "modules/modals"
-import { CarRequestForm } from "../forms"
+import { CarRequestForm } from "../../forms"
 
 export const Container = ({}) => {
 
@@ -23,10 +23,10 @@ export const Container = ({}) => {
         refetch: refetchCardData,
         isFetching: cardDataIsFetching
     } = useGetCardDataQuery({id: cardId}) 
-    
+
     if(!cardDataIsFetching) {
         return(
-            !cardDataError
+            !cardDataError && cardData
             ?
             <Layout 
                 cardId={cardId}
@@ -38,7 +38,7 @@ export const Container = ({}) => {
         )
     } else {
         return(
-            <CardPlaceholder/>
+            <Placeholder/>
         )
     }
 }

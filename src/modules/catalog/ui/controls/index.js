@@ -1,1 +1,0 @@
-export { Container as CatalogControls } from './Layout/Container'

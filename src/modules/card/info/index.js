@@ -1,0 +1,1 @@
+export { Container as CardInfo } from './ui/Layout/Container'

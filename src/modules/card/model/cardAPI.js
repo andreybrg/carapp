@@ -7,7 +7,11 @@ export const cardAPI = createApi({
     endpoints: (builder) => ({
         // Получить данные карточки
         getCardData: builder.query({
-            query: ({id}) => `catalog/get/itemupdated/${id}`,
+            query: ({id}) => ({
+                url: `catalog/get/itemupdated/${id}`,
+                validateStatus: (response, result) =>
+                    response.status === 200 && !result.error
+            }),
         }),
     }),
 })

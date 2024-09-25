@@ -1,0 +1,1 @@
+export { withFilterData } from "./withFilterData/withFilterData"

@@ -1,2 +1,3 @@
 export { MainForm } from './mainForm'
-export { ColumnSection } from './mainForm/columnSection'
+export { MainFormColumnSection } from './mainForm/ui/columnSection'
+export { MainFormMessage } from './mainForm/ui/formMessage'
