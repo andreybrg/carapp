@@ -1,0 +1,13 @@
+@use 'assets/styles/colors' as color
+    
+.progressbar
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 999999
+.bar
+    height: 2px
+    width: 0%
+    background-color: color.$theme-color
+    transition: .2s ease-out

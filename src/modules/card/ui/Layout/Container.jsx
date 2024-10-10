@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Layout } from "./Layout"
 import { useParams } from "react-router-dom"
 import { useGetCardDataQuery } from "./../../model/cardAPI"
@@ -6,8 +6,11 @@ import { Placeholder } from "./../Placeholder/Placeholder"
 import { MainError } from "shared/errorMessages"
 import { ModalsContext } from "modules/modals"
 import { CarRequestForm } from "../../forms"
+import { useProgressbar } from "modules/progressbar"
 
 export const Container = ({}) => {
+
+    const [ _, addProgressBarVal, setProgressbarDone, cancelProgressbarFlows ] = useProgressbar()
 
     const { cardId } = useParams()
     const { mainModalController } = useContext(ModalsContext)
@@ -23,6 +26,16 @@ export const Container = ({}) => {
         refetch: refetchCardData,
         isFetching: cardDataIsFetching
     } = useGetCardDataQuery({id: cardId}) 
+
+    useEffect(() => {
+        if(!cardDataIsLoading) {
+            addProgressBarVal(0.3)
+            setProgressbarDone()
+        }
+        return () => {
+            cancelProgressbarFlows()
+        }
+    }, [cardDataIsLoading])
 
     if(!cardDataIsFetching) {
         return(
