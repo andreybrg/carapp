@@ -1,5 +1,4 @@
 @use 'assets/styles/mixins' as m
-@use 'assets/styles/colors' as color
 
 .data
     display: flex
@@ -9,12 +8,12 @@
     width: 100%
     box-sizing: border-box
     span
-        @include m.fontInter(14px, color.$main-opposite-color, 400, 140%)
+        @include m.fontInter(14px, var(--text-color), 400, 140%)
         &:first-child
             font-weight: 400
             opacity: .5
             margin: 0 10px 0 0
 
 .title
-    @include m.fontInter(22px, color.$main-opposite-color, 500, 140%)
+    @include m.fontInter(22px, var(--text-color), 500, 140%)
     margin: 0 0 15px 0

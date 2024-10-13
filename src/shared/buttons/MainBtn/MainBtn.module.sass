@@ -1,4 +1,3 @@
-@use 'assets/styles/colors' as color
 @use 'assets/styles/mixins' as m
     
 .btn
@@ -8,8 +7,8 @@
     width: 100%
     height: 50px
     box-sizing: border-box
-    border-radius: 3px
-    background-color: color.$theme-color
+    border-radius: var(--main-border-radius)
+    background-color: var(--main-button-bg-color)
     display: flex
     justify-content: center
     align-items: center
@@ -17,4 +16,4 @@
     &[disabled]
         opacity: .3
     span
-        @include m.fontInter(16px, white, 500, 140% )
+        @include m.fontInter(16px, var(--main-button-content-color), 500, 140% )

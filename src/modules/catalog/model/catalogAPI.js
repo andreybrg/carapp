@@ -7,8 +7,8 @@ export const catalogAPI = createApi({
     endpoints: (builder) => ({
         // Получить данные каталога
         getCatalogData: builder.query({
-            query: ({offset, count, filters}) => ({
-                url: `catalog/get/allupdated?offset=${offset}&count=${count}${ filters.priceFrom ? `&priceFrom=${filters.priceFrom}` : '' }${ filters.priceTo ? `&priceTo=${filters.priceTo}` : '' }`,
+            query: ({page, count, filters}) => ({
+                url: `catalog/get/allupdated?page=${page}&count=${count}${ filters.priceFrom ? `&priceFrom=${filters.priceFrom}` : '' }${ filters.priceTo ? `&priceTo=${filters.priceTo}` : '' }`,
                 validateStatus: (response, result) =>
                     response.status === 200 && !result.error
             }),

@@ -1,9 +1,8 @@
-@use 'assets/styles/colors' as color
 @use 'assets/styles/mixins' as m
     
 .item
     span
-        @include m.fontInter(16px, color.$main-opposite-color, 500, 140%)
+        @include m.fontInter(16px, var(--text-color), 500, 140%)
 .active
     position: absolute
     right: auto
@@ -12,4 +11,4 @@
     width: 10px
     height: 10px
     border-radius: 100px
-    background-color: color.$theme-color
+    background-color: var(--active-filter-notice-color)

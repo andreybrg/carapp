@@ -1,5 +1,3 @@
-@use 'assets/styles/functions' as f
-@use 'assets/styles/colors' as color
 @use 'assets/styles/mixins' as m
     
 .label
@@ -9,16 +7,16 @@
     position: relative
     height: 50px
     width: 100%
-    border: 1px solid color.$main-opposite-color
+    border: 1px solid var(--border-color)
     box-sizing: border-box
-    border-radius: 3px
+    border-radius: var(--main-border-radius)
     cursor: pointer
     input
         display: none
     &:has(>input:checked)
-        background-color: color.$theme-color
-        border-color: color.$theme-color
+        background-color: var(--theme-color)
+        border-color: var(--theme-color)
         .title
-            color: color.$main-color
+            color: var(--theme-inner-color)
 .title
-    @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)
+    @include m.fontInter(16px, var(--text-color), 400, 140%)

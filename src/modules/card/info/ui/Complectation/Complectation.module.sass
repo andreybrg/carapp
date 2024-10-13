@@ -1,5 +1,4 @@
 @use 'assets/styles/mixins' as m
-@use 'assets/styles/colors' as color
 
 .data
     display: flex
@@ -8,10 +7,10 @@
     width: 100%
     box-sizing: border-box
     span
-        @include m.fontInter(14px, color.$main-opposite-color, 400, 140%)
+        @include m.fontInter(14px, var(--text-color), 400, 140%)
 
 .title
-    @include m.fontInter(22px, color.$main-opposite-color, 500, 140%)
+    @include m.fontInter(22px, var(--text-color), 500, 140%)
     margin: 0 0 15px 0
 
 .list
@@ -20,6 +19,6 @@
     li
         list-style-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgb3BhY2l0eT0iMC4xNSIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==")
         span
-            @include m.fontInter(14px, color.$main-opposite-color, 400, 210%)
+            @include m.fontInter(14px, var(--text-color), 400, 210%)
             padding: 0 0 0 5px
             box-sizing: border-box

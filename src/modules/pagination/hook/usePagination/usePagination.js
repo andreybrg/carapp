@@ -1,13 +1,12 @@
 import { useState } from "react"
-import { CATALOG_REQUEST_SIZE } from "shared/utils"
 
 export const usePagination = () => {
 
-    const [ currentOffset, setCurrentOffset ] = useState(0)
+    const [ currentPage, setCurrentPage ] = useState(1)
 
     const onPaginate = () => {
-        setCurrentOffset(prev => prev+CATALOG_REQUEST_SIZE)
+        setCurrentPage(prev => prev+1)
     }
 
-    return [ onPaginate, currentOffset ]
+    return [ onPaginate, currentPage ]
 }

@@ -1,1 +1,7 @@
-export { BASE_API_URL, CATALOG_REQUEST_SIZE } from './constants'
+export { 
+    BASE_API_URL, 
+    CATALOG_REQUEST_SIZE, 
+    IMAGES_STORAGE_URL,
+    MAIN_PHONE_CONTACT,
+    MAIN_TELEGRAM_CONTACT
+} from './constants'

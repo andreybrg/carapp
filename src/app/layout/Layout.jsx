@@ -1,5 +1,7 @@
 import React from "react"
+import cn from 'classnames'
 import style from './Layout.module.sass'
+import themeStyle from 'assets/styles/colors.module.sass'
 import { Outlet } from "react-router-dom"
 import { Header } from "shared/header"
 import { ModalsModule } from "modules/modals"
@@ -9,7 +11,7 @@ export const Layout = ({
 }) => {
 
     return(
-        <div className={style.app}>
+        <div className={cn(style.app, themeStyle.darkTheme)}>
             <Progressbar/>
             <header className={style.header}>
                 <div className={style.wrap}>

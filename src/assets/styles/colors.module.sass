@@ -1,0 +1,8 @@
+@use 'assets/styles/functions' as f
+
+$dark-colors: ("body-color" : #181818, "text-color" : #EBEBEB, "border-color" : #EBEBEB, "main-icon-color" : #EBEBEB, "input-bg-color" : #181818, "disabled-input-bg-color" : #181818, "theme-color" : #EBEBEB, "theme-inner-color" : #181818, "main-button-bg-color" : #EBEBEB, "main-button-content-color" : #181818, "microalert-bg-color" : #EBEBEB, "microalert-text-color" : #181818, "modal-bg-color" : #303030, "modal-content-bg-color" : #181818, "loader-gradient-color" : #EBEBEB, "filters-btn-bg-color" : #303030, "show-more-btn-bg-color" : #303030, "disabled-btn-cover-color" : #303030, "skeleton-bg-color" : #303030, "brogressbar-color" : #FFFFFF, "active-filter-notice-color" : #FFFFFF, "green-color" : #7AF1CF, "red-color" : #ff2448, "image-bg-color" : #181818)
+
+.darkTheme
+    @each $key, $value in $dark-colors
+        --#{$key} : #{$value}
+        --rgb-#{$key} : #{f.HexToRGB($value)}

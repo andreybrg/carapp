@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { appInitialization } from "app"
-
+import { ReactComponent as AppLogo } from 'assets/images/logo.svg'
+import style from './AppInitialization.module.sass'
 
 export const AppInitialization = ({ children }) => {
 
@@ -18,7 +19,9 @@ export const AppInitialization = ({ children }) => {
         )
     } else {
         return(
-            <>LOADING</>
+            <div className={style.appPreloader}>
+                <AppLogo/>
+            </div>
         )
     }
 }

@@ -9,7 +9,9 @@ import { usePagination } from "modules/pagination"
 
 export const Container = ({ filterParams }) => {
 
-    const [ doPagination, currentOffset ] = usePagination()
+    const [ adList, setAdList ] = useState([])
+
+    const [ doPagination, currentPage ] = usePagination()
     const [ _, addProgressBarVal, setProgressbarDone, cancelProgressbarFlows ] = useProgressbar()
 
     const { 
@@ -18,10 +20,10 @@ export const Container = ({ filterParams }) => {
         isLoading: catalogDataIsLoading, 
         refetch: refetchCatalogData,
         isFetching: catalogDataIsFetching
-    } = useGetCatalogDataQuery({offset: currentOffset, count: CATALOG_REQUEST_SIZE, filters: filterParams})
+    } = useGetCatalogDataQuery({page: currentPage, count: CATALOG_REQUEST_SIZE, filters: filterParams})
 
     useEffect(() => {
-        refetchCatalogData({offset: currentOffset, count: CATALOG_REQUEST_SIZE, filters: filterParams})
+        refetchCatalogData({page: currentPage, count: CATALOG_REQUEST_SIZE, filters: filterParams})
     }, [filterParams])
 
     useEffect(() => {
@@ -34,20 +36,31 @@ export const Container = ({ filterParams }) => {
         }
     }, [catalogDataIsLoading])
 
+    useEffect(() => {
+        if(catalogData) {
+            setAdList(prev =>
+                [
+                    ...prev,
+                    ...catalogData.response.ads
+                ])
+        }
+    }, [catalogData])
+
     const onPaginate = () => {
         doPagination()
-        console.log('paginate')
     }
+    
 
     if(!catalogDataIsLoading) {
         return(
-            !catalogDataError && catalogData
+            !catalogDataError && adList
             ?
             <Layout
-                data={catalogData.response.ads}
+                data={adList}
                 onPaginate={onPaginate}
                 isDataFetching={catalogDataIsFetching}
                 isDataLoading={catalogDataIsLoading}
+                isRangeShown={adList.length === catalogData.response.totalCount ? true : false}
                 />
             :
             <MainError message={'Ошибка загрузки. Попробуйте позже.'}/>

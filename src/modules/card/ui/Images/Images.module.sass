@@ -1,5 +1,3 @@
-@use 'assets/styles/functions' as f
-@use 'assets/styles/colors' as color
 @use 'assets/styles/mixins' as m
 
 .cardImages
@@ -11,10 +9,10 @@
         width: 100%
         position: relative
         padding-top: 100%
-        border-radius: 3px
-        border: 1px solid f.HEXtoRGBA(color.$main-opposite-color, .1)
+        border-radius: var(--main-border-radius)
+        border: 1px solid rgba(var(--rgb-border-color), .1)
         box-sizing: border-box
-        background-color: color.$main-second-color
+        background-color: var(--skeleton-bg-color)
         overflow: hidden
         display: flex
         justify-content: center
@@ -26,10 +24,10 @@
             left: 0
             width: 40%
             height: 100%
-            background: linear-gradient(to right, transparent 0%, f.HEXtoRGBA(color.$main-opposite-color, .2) 50%, transparent 100%)
+            background: linear-gradient(to right, transparent 0%, rgba(var(--rgb-loader-gradient-color), .2) 50%, transparent 100%)
             animation: load .4s cubic-bezier(.4, .0, .2, .1) infinite
         img
-            border-radius: 2px
+            border-radius: var(--main-border-radius)
             position: absolute
             width: 100%
             height: 100%
@@ -51,8 +49,9 @@
             z-index: 1
             opacity: 0
         &Loaded
+            background-color: var(--image-bg-color)
             &::before
-                background: color.$main-second-color
+                background: unset
                 animation: none
             img
                 transition: .2s

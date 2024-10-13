@@ -1,5 +1,4 @@
 @use 'assets/styles/mixins' as m
-@use 'assets/styles/colors' as color
 
 .item
     margin: 40px auto 0 auto
@@ -8,4 +7,4 @@
     align-items: center
     row-gap: 10px
     span
-        @include m.fontInter(16px, color.$main-opposite-color, 400, 140%)
+        @include m.fontInter(16px, var(--text-color), 400, 140%)

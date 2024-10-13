@@ -5,6 +5,7 @@ import { useOnImageLoaded, usePicturesSlider } from "shared/hooks"
 import arrowLeftSvg from 'assets/images/arrow_left.svg'
 import arrowRightSvg from 'assets/images/arrow_right.svg'
 import noPhotoSvg from 'assets/images/no_photo.svg'
+import { IMAGES_STORAGE_URL } from "shared/utils"
 
 export const Images = ({ images }) => {
 
@@ -23,8 +24,8 @@ export const Images = ({ images }) => {
                 images.length
                 ?
                 <>
-                    <img onLoad={onImageLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
-                    <img onLoad={onImageLoaded} src={`https://sivkovdemo.ru/catalogapi/storage/images/${images[currentSlide].path}`} alt="" />
+                    <img onLoad={onImageLoaded} src={`${IMAGES_STORAGE_URL}${images[currentSlide].path}`} alt="" />
+                    <img onLoad={onImageLoaded} src={`${IMAGES_STORAGE_URL}${images[currentSlide].path}`} alt="" />
                 </>
                 : 
                 <img className={style.emptyPhoto} src={noPhotoSvg} alt="" />

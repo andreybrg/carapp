@@ -8,7 +8,8 @@ export const Layout = ({
     data, 
     onPaginate,
     isDataFetching,
-    isDataLoading
+    isDataLoading,
+    isRangeShown
 }) => {
 
     return(
@@ -26,7 +27,7 @@ export const Layout = ({
             {
                 !isDataLoading
                 ?
-                <Pagination disabled={isDataFetching} onPaginate={onPaginate}/>
+                <Pagination disabled={isDataFetching} onPaginate={onPaginate} isRangeShown={isRangeShown}/>
                 :
                 null
             }
