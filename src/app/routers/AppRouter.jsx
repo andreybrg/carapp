@@ -9,7 +9,7 @@ export const AppRouter = ({  }) => {
         <BrowserRouter>
             <Routes>
                 <Route psth={'/'} element={<Layout/>}>
-                    <Route path={'catalog'} element={<Catalog/>}/>
+                    <Route index element={<Catalog/>}/>
                     <Route path={'card/:cardId'} element={<Card/>}/>
                     <Route path={'panel'} element={<Panel/>}/>
                     <Route path={'*'} element={<>404</>}/>

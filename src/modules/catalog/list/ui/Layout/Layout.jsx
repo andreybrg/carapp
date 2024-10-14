@@ -1,6 +1,7 @@
 import React from "react"
-import { CatalogListItem } from "./../../item"
+import cn from "classnames"
 import style from './Layout.module.sass'
+import { CatalogListItem } from "./../../item"
 import { EmptyList } from "shared/emtyList"
 import { Pagination } from "modules/pagination"
 
@@ -14,7 +15,10 @@ export const Layout = ({
 
     return(
         <>
-            <div className={style.list}>
+            <div className={cn(
+                    style.list,
+                    {[style.listFetching]: isDataFetching}
+                )}>
                 {data.length
                     ?
                     data.map(el =>

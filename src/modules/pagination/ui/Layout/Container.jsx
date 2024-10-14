@@ -1,4 +1,3 @@
-import { usePagination } from "modules/pagination/hook"
 import { Layout } from "./Layout"
 import React from "react"
 

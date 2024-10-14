@@ -1,66 +1,42 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { Layout } from "./Layout"
-import { useGetCatalogDataQuery } from "./../../../model/catalogAPI"
 import { Placeholder } from "../Placeholder/Placeholder"
 import { MainError } from "shared/errorMessages"
 import { useProgressbar } from "modules/progressbar"
-import { CATALOG_REQUEST_SIZE } from "shared/utils"
 import { usePagination } from "modules/pagination"
+import { useSelector } from "react-redux"
 
 export const Container = ({ filterParams }) => {
 
-    const [ adList, setAdList ] = useState([])
+    const catalogStore = useSelector(store => store.catalog.data)
 
-    const [ doPagination, currentPage ] = usePagination()
+    const [ doPagination ] = usePagination(filterParams)
     const [ _, addProgressBarVal, setProgressbarDone, cancelProgressbarFlows ] = useProgressbar()
 
-    const { 
-        data: catalogData, 
-        error: catalogDataError, 
-        isLoading: catalogDataIsLoading, 
-        refetch: refetchCatalogData,
-        isFetching: catalogDataIsFetching
-    } = useGetCatalogDataQuery({page: currentPage, count: CATALOG_REQUEST_SIZE, filters: filterParams})
-
     useEffect(() => {
-        refetchCatalogData({page: currentPage, count: CATALOG_REQUEST_SIZE, filters: filterParams})
-    }, [filterParams])
-
-    useEffect(() => {
-        if(!catalogDataIsLoading) {
+        if(catalogStore.isInit) {
             addProgressBarVal(0.3)
             setProgressbarDone()
         }
         return () => {
             cancelProgressbarFlows()
         }
-    }, [catalogDataIsLoading])
-
-    useEffect(() => {
-        if(catalogData) {
-            setAdList(prev =>
-                [
-                    ...prev,
-                    ...catalogData.response.ads
-                ])
-        }
-    }, [catalogData])
+    }, [catalogStore.isInit])
 
     const onPaginate = () => {
         doPagination()
     }
-    
 
-    if(!catalogDataIsLoading) {
+    if(catalogStore.isInit) {
         return(
-            !catalogDataError && adList
+            !catalogStore.isError
             ?
             <Layout
-                data={adList}
+                data={catalogStore.adList}
                 onPaginate={onPaginate}
-                isDataFetching={catalogDataIsFetching}
-                isDataLoading={catalogDataIsLoading}
-                isRangeShown={adList.length === catalogData.response.totalCount ? true : false}
+                isDataFetching={catalogStore.isFetching}
+                isDataLoading={!catalogStore.isInit}
+                isRangeShown={catalogStore.adList.length === catalogStore.totalCount ? true : false}
                 />
             :
             <MainError message={'Ошибка загрузки. Попробуйте позже.'}/>
